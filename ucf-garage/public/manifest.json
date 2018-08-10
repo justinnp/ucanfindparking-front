@@ -3,9 +3,9 @@
   "name": "UCF Garage Finder",
   "icons": [
     {
-      "src": "knight.ico",
-      "sizes": "900x800",
-      "type": "image/x-icon"
+      "src": "car.png",
+      "sizes": "512x512",
+      "type": "image/png"
     },
     {
       "src": "iphone.png",
