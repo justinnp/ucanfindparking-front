@@ -10,12 +10,14 @@ function percentageColor(newColor){
 
 const Garage = (props) => {
     const newColor = props.percentTaken;
+    let taken = props.max - props.current;
+    if(taken < 0) taken = taken * -1;
     return(
         <Card body className="mx-3 my-3">
             <CardTitle>{props.name}</CardTitle>
             <CardText>
                 <div className="d-flex">
-                    {props.current} / {props.max}
+                    {taken} / {props.max}
                     <div className="ml-auto">
                         {props.percentTaken}%
                     </div>
