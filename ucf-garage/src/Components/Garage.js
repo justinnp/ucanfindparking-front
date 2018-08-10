@@ -13,12 +13,17 @@ const Garage = (props) => {
     return(
         <Card body className="mx-3 my-3">
             <CardTitle>{props.name}</CardTitle>
-            <CardText className="d-flex">
+            <CardText>
+                <div className="d-flex">
                     {props.current} / {props.max}
                     <div className="ml-auto">
                         {props.percentTaken}%
                     </div>
-                <Progress value={props.percentTaken} color= {percentageColor(newColor)} />
+                </div>
+                <Progress 
+                    value={props.percentTaken}
+                    color= {percentageColor(newColor)}
+                />
             </CardText>
         </Card>
     );
