@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Col, Card, CardTitle, CardText, Progress} from 'reactstrap';
+import {Card, CardTitle, CardText, Progress} from 'reactstrap';
 
 function percentageColor(newColor){
     if(newColor < 40) return 'success';
@@ -12,12 +12,13 @@ const Garage = (props) => {
     const newColor = props.percentTaken;
     return(
         <Card body className="mx-3 my-3">
-            <CardTitle> Garage {props.name} </CardTitle>
-            <CardText>
-                <Progress 
-                    value={props.percentTaken}
-                    color= {percentageColor(newColor)}
-                />
+            <CardTitle>{props.name}</CardTitle>
+            <CardText className="d-flex">
+                    {props.current} / {props.max}
+                    <div className="ml-auto">
+                        {props.percentTaken}%
+                    </div>
+                <Progress value={props.percentTaken} color= {percentageColor(newColor)} />
             </CardText>
         </Card>
     );

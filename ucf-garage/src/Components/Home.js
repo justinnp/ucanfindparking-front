@@ -12,15 +12,13 @@ class Home extends Component {
         }
     }
     componentWillMount(){
-        fetch(url,{
-            mode: 'no-cors',
-        })
+        fetch(url)
         .then(response => response.json())
         .then(responseData =>{
-            console.log(responseData);
             const tmpGarages = [];
             for(var key in responseData){
                 const garage = {
+                    name: key,
                     current: responseData[key].current,
                     max: responseData[key].max,
                     percentOpen: responseData[key].percentage_avail,
