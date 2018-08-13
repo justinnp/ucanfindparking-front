@@ -38,7 +38,11 @@ class Home extends Component {
         return (
             <div style={{overflow: "hidden"}}>
                 <Navbar className="bg-dark fixed-top">
-                    <h3 className="mx-auto" style={{color: '#F6C344'}}> U Can Find Parking</h3>
+                    <h3 className="mx-auto" style={{color: '#F6C344'}}> 
+                        <span style={{color: "white"}}>U</span>
+                        <span style={{color: "white"}}>C</span>an
+                        <span style={{color: "white"}}>F</span>ind Parking
+                    </h3>
                 </Navbar>
                 <Row className="pt-5">
                     <GarageList garages={this.state.garages}/>
