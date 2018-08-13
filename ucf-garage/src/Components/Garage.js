@@ -12,7 +12,7 @@ const Garage = (props) => {
     const url = props.name === 'Libra' ? 
         `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817` :
         `https://www.google.com/maps?saddr=My+Location&daddr=University+of+Central+Florida+Parking+Garage+${props.name},+Orlando,+FL+32817`;
-        
+
     const newColor = props.percentTaken;
     let taken = props.max - props.current;
     if(taken < 0) taken = taken * -1;
