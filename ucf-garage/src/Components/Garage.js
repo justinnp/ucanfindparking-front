@@ -13,7 +13,7 @@ const Garage = (props) => {
     let taken = props.max - props.current;
     if(taken < 0) taken = taken * -1;
     return(
-        <Card body className="mx-3 my-3">
+        <Card body className="mx-2 my-3">
             <CardTitle>{props.name}</CardTitle>
             <CardText>
                 <div className="d-flex">

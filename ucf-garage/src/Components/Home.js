@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {Navbar, Row} from 'reactstrap';
 import GarageList from './GarageList';
 
@@ -37,14 +37,14 @@ class Home extends Component {
 
     render() {
         return (
-            <Fragment>
-                <Navbar className="bg-dark mb-5">
-                    <h1 className="mx-auto" style={{color: '#F6C344'}}> UCF Garages </h1>
+            <div style={{overflow: "hidden"}}>
+                <Navbar className="bg-dark fixed-top">
+                    <h3 className="mx-auto" style={{color: '#F6C344'}}> U Can Find Parking</h3>
                 </Navbar>
-                <Row>
+                <Row className="pt-5">
                     <GarageList garages={this.state.garages}/>
                 </Row>
-            </Fragment>
+            </div>
         );
     }
 }
