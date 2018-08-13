@@ -32,13 +32,40 @@ class Home extends Component {
         })
         .catch(error => {
             console.log('Error fetching and parsing data.', error);
-          });
+        });
     }
+
+    componentDidMount() {
+      setInterval(() => {
+        fetch(url)
+        .then(response => response.json())
+        .then(responseData =>{
+            const tmpGarages = [];
+            for(var key in responseData){
+                const garage = {
+                    name: key,
+                    current: responseData[key].current,
+                    max: responseData[key].max,
+                    percentOpen: responseData[key].percentage_avail,
+                    percentTaken: responseData[key].percentage_full
+                }
+                tmpGarages.push(garage);
+            }
+            this.setState({
+                garages: tmpGarages
+            })
+        })
+        .catch(error => {
+            console.log('Error fetching and parsing data.', error);
+        });
+      }, 5000);
+    }
+
     render() {
         return (
             <div style={{overflow: "hidden"}}>
                 <Navbar className="bg-dark fixed-top">
-                    <h3 className="mx-auto" style={{color: '#F6C344'}}> 
+                    <h3 className="mx-auto" style={{color: '#F6C344'}}>
                         <span style={{color: "white"}}>U</span>
                         <span style={{color: "white"}}>C</span>an
                         <span style={{color: "white"}}>F</span>ind Parking
