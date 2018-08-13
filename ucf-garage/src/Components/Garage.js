@@ -9,25 +9,28 @@ function percentageColor(newColor){
 }
 
 const Garage = (props) => {
+    const url = `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817`;
     const newColor = props.percentTaken;
     let taken = props.max - props.current;
     if(taken < 0) taken = taken * -1;
     return(
-        <Card body className="mx-2 my-3">
-            <CardTitle>{props.name}</CardTitle>
-            <CardText>
-                <div className="d-flex">
-                    {taken} / {props.max}
-                    <div className="ml-auto">
-                        {props.percentTaken}%
+        <a href={url}>
+            <Card body className="mx-2 my-3" href={url}>
+                <CardTitle>Garage {props.name}</CardTitle>
+                <CardText>
+                    <div className="d-flex">
+                        {taken} / {props.max}
+                        <div className="ml-auto">
+                            {props.percentTaken}%
+                        </div>
                     </div>
-                </div>
-                <Progress 
-                    value={props.percentTaken}
-                    color= {percentageColor(newColor)}
-                />
-            </CardText>
-        </Card>
+                    <Progress 
+                        value={props.percentTaken}
+                        color= {percentageColor(newColor)}
+                    />
+                </CardText>
+            </Card>
+        </a>
     );
 }
 

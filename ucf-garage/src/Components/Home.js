@@ -34,7 +34,6 @@ class Home extends Component {
             console.log('Error fetching and parsing data.', error);
           });
     }
-
     render() {
         return (
             <div style={{overflow: "hidden"}}>
