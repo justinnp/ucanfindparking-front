@@ -8,12 +8,6 @@ function percentageColor(newColor){
     else return 'danger';
 }
 
-function googleMap(url){
-    return(
-        window.location = url
-    );
-}
-
 const Garage = (props) => {
     const url = `https://www.google.com/maps?saddr=My+Location&daddr=UCF+Parking+Garage+${props.name},+Orlando,+FL+32817`;
     const newColor = props.percentTaken;
