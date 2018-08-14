@@ -6,7 +6,7 @@ import Garage from './Garage';
 const GarageList = (props) => {
     return(
         <Fragment>
-            {props.garages.map((garage, index) => 
+            {props.garages.map((garage, index) =>
                 <Col key={index} sm="4">
                     <Garage
                         key={index}
@@ -15,6 +15,7 @@ const GarageList = (props) => {
                         max={garage.max}
                         percentOpen={garage.percentOpen}
                         percentTaken={garage.percentTaken}
+                        didUpdate={garage.didUpdate}
                     />
                 </Col>
             )}

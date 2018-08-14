@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Card, CardTitle, CardText, Progress,Button} from 'reactstrap';
+import './Garage.css';
 
 function percentageColor(newColor){
     if(newColor < 40) return 'success';
@@ -9,10 +10,10 @@ function percentageColor(newColor){
 }
 
 const Garage = (props) => {
-    const url = props.name === 'Libra' ? 
+    const url = props.name === 'Libra' ?
         `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817` :
         `https://www.google.com/maps?saddr=My+Location&daddr=University+of+Central+Florida+Parking+Garage+${props.name},+Orlando,+FL+32817`;
-
+    var didUpdate = props.didUpdate;
     const newColor = props.percentTaken;
     let taken = props.max - props.current;
     if(taken < 0) taken = taken * -1;
@@ -20,7 +21,9 @@ const Garage = (props) => {
         <Card body className="mx-2 my-3">
             <CardTitle>
                 <div className="d-flex">
-                    Garage {props.name}
+                    {didUpdate ?
+                    <div class="blink_me">Garage {props.name}</div> :
+                    <div class="blink_me_again">Garage {props.name}</div>}
                     <div className="ml-auto">
                         <Button color="primary" size="sm">
                             <a href={url} style={{textDecoration:"none", color:"white"}}>
@@ -37,7 +40,7 @@ const Garage = (props) => {
                         {props.percentTaken}%
                     </div>
                 </div>
-                <Progress 
+                <Progress
                     value={props.percentTaken}
                     color= {percentageColor(newColor)}
                 />

@@ -17,12 +17,14 @@ class Home extends Component {
         .then(responseData =>{
             const tmpGarages = [];
             for(var key in responseData){
+
                 const garage = {
                     name: key,
                     current: responseData[key].current,
                     max: responseData[key].max,
                     percentOpen: responseData[key].percentage_avail,
-                    percentTaken: responseData[key].percentage_full
+                    percentTaken: responseData[key].percentage_full,
+                    didUpdate: false
                 }
                 tmpGarages.push(garage);
             }
@@ -47,18 +49,28 @@ class Home extends Component {
                     current: responseData[key].current,
                     max: responseData[key].max,
                     percentOpen: responseData[key].percentage_avail,
-                    percentTaken: responseData[key].percentage_full
+                    percentTaken: responseData[key].percentage_full,
+                    didUpdate: false
                 }
                 tmpGarages.push(garage);
             }
+
+            var old = this.state.garages
+            for(key in old) {
+              if(old[key].current !== tmpGarages[key].current) {
+                tmpGarages[key].didUpdate = true;
+              }
+            }
+
             this.setState({
                 garages: tmpGarages
             })
+
         })
         .catch(error => {
             console.log('Error fetching and parsing data.', error);
         });
-      }, 5000);
+      }, 10000);
     }
 
     render() {
