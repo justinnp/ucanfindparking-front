@@ -10,7 +10,7 @@ function percentageColor(newColor){
 }
 
 const Garage = (props) => {
-    const url = props.name === 'Libra' ?
+    var url = props.name === 'Libra' ?
         `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817` :
         `https://www.google.com/maps?saddr=My+Location&daddr=University+of+Central+Florida+Parking+Garage+${props.name},+Orlando,+FL+32817`;
     var didUpdate = props.didUpdate;
@@ -25,11 +25,11 @@ const Garage = (props) => {
                     <div class="blink_me">Garage {props.name}</div> :
                     <div class="blink_me_again">Garage {props.name}</div>}
                     <div className="ml-auto">
-                        <Button color="primary" size="sm">
-                            <a href={url} style={{textDecoration:"none", color:"white"}}>
-                            Route Me!
-                            </a>
-                        </Button>
+                        <a href={url} style={{textDecoration:"none", color:"white"}}>
+                            <Button color="primary" size="sm">
+                                Route Me!
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </CardTitle>
