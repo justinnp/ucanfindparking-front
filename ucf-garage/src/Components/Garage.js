@@ -10,9 +10,13 @@ function percentageColor(newColor){
 }
 
 const Garage = (props) => {
-    var url = props.name === 'Libra' ?
-        `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817` :
-        `https://www.google.com/maps?saddr=My+Location&daddr=University+of+Central+Florida+Parking+Garage+${props.name},+Orlando,+FL+32817`;
+    var url = `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817`;
+
+    // For when Libra stops playing games.
+    // var url = props.name === 'Libra' ?
+    //     `https://www.google.com/maps?saddr=My+Location&daddr=Parking+Garage+${props.name},+Orlando,+FL+32817` :
+    //     `https://www.google.com/maps?saddr=My+Location&daddr=University+of+Central+Florida+Parking+Garage+${props.name},+Orlando,+FL+32817`;
+
     var didUpdate = props.didUpdate;
     const newColor = props.percentTaken;
     let taken = props.max - props.current;
